@@ -283,6 +283,8 @@ I have been working in furniture manufacturing and interior design since 1985. I
   <a href="#" class="w3-button w3-light-grey"> <i class="fa fa-arrow-circle-up" style="font-size:36px"></i> To the top</a>
 
   <p> POWERED BY TEAM FOCUS </p>
+  <br>
+  <p> Ahnaf Tech Services Limited &#169; </p>
 
   <!-- AHNAF WAS HERE -->
   
