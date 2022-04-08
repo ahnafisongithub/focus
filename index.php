@@ -43,7 +43,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   </a>
 
   <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-black">
-    <i class="fa fa-envelope w3-xxlarge"></i>
+    <i class="fa fa-info w3-xxlarge"></i>
     <p>ABOUT</p>
   </a>
 
@@ -87,14 +87,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <img src="images/f1-1.jpg" alt="boy" class="w3-image" width="400" height="400">
   </header>
 
-    <!-- Stars and Review count -->
-    <div class="w3-black w3-padding-large w3-padding-32 w3-margin-top" id="bio">
-    <h3 class="w3-center">Ratings Preview</h3>
-    <hr>
-    <fieldset class="w3-center"> </fieldset>
-   
 
-  </div>
 
   <!-- Biography Section -->
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="biography">
@@ -180,7 +173,7 @@ I have been working in furniture manufacturing and interior design since 1985. I
   <div class="w3-light-grey w3-padding-large w3-padding-32 w3-margin-top" id="reviews">
     <h3 class="w3-center">Leave a review</h3>
     <hr>
-    <p>Tell us how you feel about our photographer's service, including what areas to improve upon</p>
+    <p>Tell us how you feel about our service, including what areas to improve upon</p>
     
     <form action="port_conn.php" method="post">
     
@@ -263,116 +256,6 @@ I have been working in furniture manufacturing and interior design since 1985. I
 
   </div> -->
 
-<!-- Reviews -->
-<div class="w3-light-grey w3-padding-large w3-padding-32 w3-margin-top" id="reviews">
-    <h3 class="w3-center">Reviews</h3>
-    <hr>
-    <p>This is what our previous customers had to say about the photographer:</p>
-    <br>
-    <br>
-    <br>
-    <br>
-
-
-    <?php
-// IMPORTING REVIEWS
-
-// Setting photographer ID
-$id=2;
-$count=0;
-// FETCHING NAME FROM DATABASE
-// connecting to database called fotoboo
-	$conn = mysqli_connect('localhost','root','','fotoboo');
-    if(!$conn){
-        echo 'Connection error' . mysqli.connect_error();
-    }
-    
-
-
-    //writing query for fetching everything from database
-    $sql = "SELECT * FROM reviews";
-
-
-    //making query and getting result
-    $db_email = mysqli_query($conn, $sql);
-
-
-    //fetching the resulting rows as array
-    $registration = mysqli_fetch_all($db_email, MYSQLI_ASSOC);
-    
-    //FETCHING NAME, BIO & CONTACT FROM PORTFOLIO
-    foreach(array_reverse($registration) as $reg){
-      //$int_value = intval( $string );
-        $check_id = intval(htmlspecialchars($reg['photographer_id']));
-
- 
-        if($check_id==$id && $count!=10){
-            $namerev_fill=htmlspecialchars($reg['name']);
-            $review=htmlspecialchars($reg['message']);
-            $count++;
-
-            //echo '<input type="text" name="name1" value="'.$var.'">';
-
-            echo '<hr>';
-
-            echo "Name: \r\n";
-
-            echo '<br>';
-
-            echo '<br>';
-
-            echo '<td><b>'.$namerev_fill.'</b></td>';
-
-            echo "<br>";
-
-            echo "<br>";
-
-            echo "\r\n";
-
-            echo "Review: \r\n";
-
-            echo "<br>";
-
-            echo "<br>";
-
-            echo '<td><b>'.$review.'</b></td>';
-
-            echo "<br>";
-
-            echo "<br>";
-
-            echo "<br>";
-
-            echo "<br>";
-
-            echo "\r\n";
-
-            echo '<hr>';
-
-
-
-
-            
-
-           
-            
-        }
-        else{
-            echo "";
-        }
-    
-    }
-
-    
-
-
-?>
-
-
-
-  </div>
-  
-
 
     <!-- Footer -->
   <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
@@ -394,15 +277,6 @@ $count=0;
   <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off" >
   <a href="https://www.facebook.com/FocusDesignStudio2021" class="w3-button w3-hover-opacity"> <i class=" fa fa-facebook-official" style="font-size:36px"></i> Follow Us</a>
 
-  <div class="w3-xlarge w3-section button">
-    <i href="https://www.facebook.com/FocusDesignStudio2021" class="fa fa-facebook-official w3-hover-opacity button"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-
-  </div>
 
   <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off" >
