@@ -125,8 +125,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
     <form action="download.php" method="post" enctype="multipart/form-data">
     <p>STEP 3: DOWNLOAD THE FILE ON THE SERVER </p>
-    <label for="name">Enter nickname [MUST MATCH FOLDER NAME!]:</label>
-  <input type="text" id="name" name="name"><br><br>
+    <label for="name3">Enter nickname [MUST MATCH FOLDER NAME!]:</label>
+  <input type="text" id="name3" name="name3"><br><br>
   <label for="pin">Enter 4-digit pin code:</label>
   <input type="password" id="pin" name="pin"><br><br>
 
