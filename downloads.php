@@ -29,7 +29,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <p>BUY PRODUCTS</p>
   </a>
   
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+  <a href="index.php" class="w3-bar-item w3-button w3-padding-large w3-black">
     <i class="fa fa-home w3-xxlarge"></i>
     <p>HOME</p>
   </a>
@@ -60,7 +60,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <!-- Navbar on small screens (Hidden on medium and large screens) -->
 <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
   <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-    <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+    <a href="index.php" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
     <a href="#biography" class="w3-bar-item w3-button" style="width:25% !important">BIO</a>
     <a href="#portfolio" class="w3-bar-item w3-button" style="width:25% !important">PORTFOLIO</a>
     <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
@@ -80,7 +80,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
     <form action="create_folder.php" method="post">
       <p>STEP 1: CREATE A FOLDER ON THE SERVER </p>
-    <label for="name">Enter nickname:</label>
+    <label for="name">Enter nickname [THIS WILL BE USED AS FOLDER NAME!]:</label>
   <input type="text" id="name" name="name"><br><br>
   <label for="pin">Enter 4-digit pin code:</label>
   <input type="password" id="pin" name="pin"><br><br>
@@ -102,14 +102,16 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <form action="upload.php" method="post" enctype="multipart/form-data">
     <p>STEP 2: UPLOAD A FILE ON THE SERVER </p>
     <label for="name2">Enter nickname [MUST MATCH FOLDER NAME!]:</label>
-  <input type="text" id="name2" name="name2"><br><br>
+  <input type="text" id="name2" name="name2">
+  <br><br>
   <label for="pin">Enter 4-digit pin code:</label>
   <input type="password" id="pin" name="pin"><br><br>
 
   <br>
   
-  Select image to upload:
-  <input type="file" name="fileToUpload" id="fileToUpload">
+  Select file to upload [MAX SIZE IS 10MB]:
+  <input name="upload[]" type="file" multiple="multiple" />
+  <!-- <input type="file" name="fileToUpload" id="fileToUpload" multiple> -->
           
         <br /><br />
 

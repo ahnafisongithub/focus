@@ -1,145 +1,59 @@
 <?php
 
+//defining the different sizes of bytes for cleaner code
+define('KB', 1024);
+define('MB', 1048576);
+define('GB', 1073741824);
+define('TB', 1099511627776);
 
 $name2= $_POST['name2'];
 $pin= $_POST['pin'];
 
-// if($pin=='2022'){
-// $target_dir = "/uploads";
-// $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-// $uploadOk = 1;
-// $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-// // Check if image file is a actual image or fake image
-// if(isset($_POST["submit"])) {
-//   $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-//   if($check !== false) {
-//     echo "File is an image - " . $check["mime"] . ".";
-//     $uploadOk = 1;
-//   } else {
-//     echo "File is not an image.";
-//     $uploadOk = 0;
-//   }
-// }
-
-// // Check if file already exists
-// if (file_exists($target_file)) {
-//   echo "Sorry, file already exists.";
-//   $uploadOk = 0;
-// }
-
-// // Check file size
-// if ($_FILES["fileToUpload"]["size"] > 1000000) {
-//   echo "Sorry, your file is too large.";
-//   $uploadOk = 0;
-// }
-
-// // Allow certain file formats
-// if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-// && $imageFileType != "gif" ) {
-//   echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-//   echo '<br>';
-//   $uploadOk = 0;
-// }
-
-// // Check if $uploadOk is set to 0 by an error
-// if ($uploadOk == 0) {
-//   echo " Sorry, your file was not uploaded.";
-//   echo '<br>';
-//   echo 'Redirecting...';
-//   echo '<meta http-equiv="refresh" content="3;URL=/focus/downloads.php">';
-// // if everything is ok, try to upload file
-// } else {
-//   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-//     echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-//     echo '<br>';
-//     echo 'Redirecting...';
-//     echo '<meta http-equiv="refresh" content="3;URL=/focus/downloads.php">';
-//   } else {
-//     echo " Sorry, there was an error uploading your file.";
-//     echo '<br>';
-//     echo 'Redirecting...';
-//     echo '<meta http-equiv="refresh" content="3;URL=/focus/downloads.php">';
-//   }
-// }
-// }
-// else{
-//     echo "WRONG PIN!";
-// }
-
-
-$target_dir = "uploads/$name2/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
 if($pin=="2022"){
-// Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-  if($check !== false) {
-    echo "File is an image - " . $check["mime"] . ".";
-    $uploadOk = 1;
-  } else {
-    echo "File is not an image.";
-    $uploadOk = 0;
-    echo '<br>';
-    echo 'Redirecting...';
-    echo '<meta http-equiv="refresh" content="3;URL=/focus/downloads.php">';
-  }
-}
+$files = array_filter($_FILES['upload']['name']); //Use something similar before processing files.
+// Count the number of uploaded files in array
+$total_count = count($_FILES['upload']['name']);
+// Loop through every file
+for( $i=0 ; $i < $total_count ; $i++ ) {
+   //The temp file path is obtained
+   $tmpFilePath = $_FILES['upload']['tmp_name'][$i];
 
-// Check if file already exists
-if (file_exists($target_file)) {
-  echo "Sorry, file already exists.";
-  $uploadOk = 0;
-  echo '<br>';
-  echo 'Redirecting...';
+   if ($_FILES['upload']['size'][$i] > 10*MB){
+     echo "<h1>ERROR: File size exceeds 10MB! </h1>";
+     echo 'Redirecting...';
+     echo '<meta http-equiv="refresh" content="3;URL=/focus/downloads.php">';
+     echo '<br>';
+     die();     
+
+   }
+
+   //A file path needs to be present
+   if ($tmpFilePath != ""){
+      //Setup our new file path
+      $newFilePath = "uploads/$name2/". $_FILES['upload']['name'][$i];
+      //File is uploaded to temp dir
+      if(move_uploaded_file($tmpFilePath, $newFilePath)) {
+         //Other code goes here
+             echo "<h1>The file ". htmlspecialchars(basename($_FILES['upload']['name'][$i])). " has been uploaded.</h1>";
+             echo '<br>';
+             if($i==$total_count-1){
+              echo '<h2>Redirecting...</h2>';
+              echo '<meta http-equiv="refresh" content="3;URL=/focus/downloads.php">';
+              echo '<br>';
+             }
+
+
+      }
+      else{echo "upload failed";}
+   }
+}
+}
+else{              
+  echo '<h1>WRONG PIN!</h1>';
+  echo '<h2>Redirecting...</h2>';
   echo '<meta http-equiv="refresh" content="3;URL=/focus/downloads.php">';
-}
+  echo '<br>'; };
 
-// Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
-  echo "Sorry, your file is too large.";
-  $uploadOk = 0;
-  echo '<br>';
-  echo 'Redirecting...';
-  echo '<meta http-equiv="refresh" content="3;URL=/focus/downloads.php">';
-}
 
-// Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
-  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-  $uploadOk = 0;
-  echo '<br>';
-  echo 'Redirecting...';
-  echo '<meta http-equiv="refresh" content="3;URL=/focus/downloads.php">';
-}
-
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-  echo "Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
-} else {
-  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-    echo '<br>';
-    echo 'Redirecting...';
-    echo '<meta http-equiv="refresh" content="3;URL=/focus/downloads.php">';
-  } else {
-    echo "Sorry, there was an error uploading your file.";
-        echo '<br>';
-    echo 'Redirecting...';
-    echo '<meta http-equiv="refresh" content="3;URL=/focus/downloads.php">';
-  }
-}
-}
-else{
-    echo "WRONG PIN!";
-    echo '<br>';
-echo 'Redirecting...';
-echo '<meta http-equiv="refresh" content="3;URL=/focus/downloads.php">';
-}
 
 ?>

@@ -56,6 +56,11 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <i class="fa fa-home w3-xxlarge"></i>
     <p>REVIEWS</p>
   </a>
+
+  <a href="downloads.php" class="w3-bar-item w3-button w3-padding-large w3-black">
+    <i class="fa fa-download w3-xxlarge"></i>
+    <p>DOWNLOADS</p>
+  </a>
 </nav>
 
 <!-- Navbar on small screens (Hidden on medium and large screens) -->
@@ -71,6 +76,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
     <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
     <a href="#reviews" class="w3-bar-item w3-button" style="width:25% !important">REVIEWS</a>
+    <a href="downloads.php" class="w3-bar-item w3-button fa fa-download" style="width:25% !important">DOWNLOADS</a>
   </div>
 </div>
 

@@ -1,13 +1,22 @@
 <?php
 $name3= $_POST['name3'];
-$pin= '2022';
+$pin= $_POST['pin'];
 
 //$pin= $_POST['pin'];
 
 if($pin=='2022'){
 
-//$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$files = array_slice(scandir("uploads/$name3"), 2);?>
+//array for returning names of files only
+if(scandir("uploads/$name3")==false){
+  echo "<h1>FOLDER DOES NOT EXIST!</h1>";
+  echo "<h2>Redirecting...</h2>";
+  echo '<meta http-equiv="refresh" content="3;URL=/focus/downloads.php">';
+  die();
+
+}
+$files = array_slice(scandir("uploads/$name3"), 2);
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,16 +25,18 @@ $files = array_slice(scandir("uploads/$name3"), 2);?>
 <body>
   <?php
 foreach($files as $file){?>
-<p><a href="uploads/<?php echo $name3?>/<?php echo $file ?>">Download JPG file named: <?php echo $file ?> </a></p>
+<h3><a href="uploads/<?php echo $name3?>/<?php echo $file ?>">Download file named: <?php echo $file ?> </a></h3>
 
 <?php } ?>
-
+<br><br>
+<h2><a href="downloads.php"> RETURN TO PREVIOUS PAGE </a></h2>
 </body>
 </html>
 
 
 <?php
+
 //echo $files[0];
 }
-else{ echo "WRONG PIN!";}
+else{ echo "<h1>WRONG PIN!</h1>";}
 ?>
