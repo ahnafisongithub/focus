@@ -18,10 +18,10 @@ for( $i=0 ; $i < $total_count ; $i++ ) {
    //The temp file path is obtained
    $tmpFilePath = $_FILES['upload']['tmp_name'][$i];
 
-   if ($_FILES['upload']['size'][$i] > 10*MB){
+   if ($_FILES['upload']['size'][$i] > 100*MB){
      echo "<h1>ERROR: File size exceeds 10MB! </h1>";
      echo 'Redirecting...';
-     echo '<meta http-equiv="refresh" content="3;URL=/focus/downloads.php">';
+     echo '<meta http-equiv="refresh" content="3;URL=/downloads.php">';
      echo '<br>';
      die();     
 
@@ -38,7 +38,7 @@ for( $i=0 ; $i < $total_count ; $i++ ) {
              echo '<br>';
              if($i==$total_count-1){
               echo '<h2>Redirecting...</h2>';
-              echo '<meta http-equiv="refresh" content="3;URL=/focus/downloads.php">';
+              echo '<meta http-equiv="refresh" content="3;URL=/downloads.php">';
               echo '<br>';
              }
 
@@ -51,7 +51,7 @@ for( $i=0 ; $i < $total_count ; $i++ ) {
 else{              
   echo '<h1>WRONG PIN!</h1>';
   echo '<h2>Redirecting...</h2>';
-  echo '<meta http-equiv="refresh" content="3;URL=/focus/downloads.php">';
+  echo '<meta http-equiv="refresh" content="3;URL=/downloads.php">';
   echo '<br>'; };
 
 

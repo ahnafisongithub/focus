@@ -10,7 +10,7 @@ if($pin=='2022'){
 if(scandir("uploads/$name3")==false){
   echo "<h1>FOLDER DOES NOT EXIST!</h1>";
   echo "<h2>Redirecting...</h2>";
-  echo '<meta http-equiv="refresh" content="3;URL=/focus/downloads.php">';
+  echo '<meta http-equiv="refresh" content="3;URL=/downloads.php">';
   die();
 
 }

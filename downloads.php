@@ -33,7 +33,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <i class="fa fa-home w3-xxlarge"></i>
     <p>HOME</p>
   </a>
-  <a href="#biography" class="w3-bar-item w3-button w3-padding-large w3-black">
+  <!-- <a href="#biography" class="w3-bar-item w3-button w3-padding-large w3-black">
     <i class="fa fa-user w3-xxlarge"></i>
     <p>BIOGRAPHY</p>
   </a>
@@ -54,18 +54,21 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   <a href="#reviews" class="w3-bar-item w3-button w3-padding-large w3-black">
     <i class="fa fa-home w3-xxlarge"></i>
     <p>REVIEWS</p>
-  </a>
+  </a> -->
 </nav>
 
 <!-- Navbar on small screens (Hidden on medium and large screens) -->
 <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
   <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+  <a href="https://focusbd.xyz/abante/" class="w3-bar-item w3-button w3-padding-large w3-yellow ">
+  <i class="fa fa-shopping-cart" style="font-size:48px;color:red"></i>
+    <p>BUY PRODUCTS</p></a>
     <a href="index.php" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
-    <a href="#biography" class="w3-bar-item w3-button" style="width:25% !important">BIO</a>
+    <!-- <a href="#biography" class="w3-bar-item w3-button" style="width:25% !important">BIO</a>
     <a href="#portfolio" class="w3-bar-item w3-button" style="width:25% !important">PORTFOLIO</a>
     <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
     <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
-    <a href="#reviews" class="w3-bar-item w3-button" style="width:25% !important">REVIEWS</a>
+    <a href="#reviews" class="w3-bar-item w3-button" style="width:25% !important">REVIEWS</a> -->
   </div>
 </div>
 
@@ -81,9 +84,9 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <form action="create_folder.php" method="post">
       <p>STEP 1: CREATE A FOLDER ON THE SERVER </p>
     <label for="name">Enter nickname [THIS WILL BE USED AS FOLDER NAME!]:</label>
-  <input type="text" id="name" name="name"><br><br>
+  <input type="text" id="name" name="name" required><br><br>
   <label for="pin">Enter 4-digit pin code:</label>
-  <input type="password" id="pin" name="pin"><br><br>
+  <input type="password" id="pin" name="pin" required><br><br>
 
   <br>
   
@@ -102,15 +105,15 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <form action="upload.php" method="post" enctype="multipart/form-data">
     <p>STEP 2: UPLOAD A FILE ON THE SERVER </p>
     <label for="name2">Enter nickname [MUST MATCH FOLDER NAME!]:</label>
-  <input type="text" id="name2" name="name2">
+  <input type="text" id="name2" name="name2" required>
   <br><br>
   <label for="pin">Enter 4-digit pin code:</label>
-  <input type="password" id="pin" name="pin"><br><br>
+  <input type="password" id="pin" name="pin" required><br><br>
 
   <br>
   
-  Select file to upload [MAX SIZE IS 10MB]:
-  <input name="upload[]" type="file" multiple="multiple" />
+  Select file to upload [MAX SIZE IS 100MB]:
+  <input name="upload[]" type="file" multiple="multiple" required />
   <!-- <input type="file" name="fileToUpload" id="fileToUpload" multiple> -->
           
         <br /><br />
@@ -128,9 +131,9 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <form action="download.php" method="post" enctype="multipart/form-data">
     <p>STEP 3: DOWNLOAD THE FILE ON THE SERVER </p>
     <label for="name3">Enter nickname [MUST MATCH FOLDER NAME!]:</label>
-  <input type="text" id="name3" name="name3"><br><br>
+  <input type="text" id="name3" name="name3" required><br><br>
   <label for="pin">Enter 4-digit pin code:</label>
-  <input type="password" id="pin" name="pin"><br><br>
+  <input type="password" id="pin" name="pin" required><br><br>
 
   <br>
   
