@@ -25,7 +25,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
   <!-- Avatar image in top left corner -->
 
-  <a href="https://focusbd.xyz/abante/" class="w3-bar-item w3-button w3-padding-large w3-yellow ">
+  <a href="https://focusbd.xyz/products.php" class="w3-bar-item w3-button w3-padding-large w3-yellow ">
   <i class="fa fa-shopping-cart" style="font-size:48px;color:red"></i>
     <p>BUY PRODUCTS</p>
   </a>
@@ -61,12 +61,17 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <i class="fa fa-download w3-xxlarge"></i>
     <p>DOWNLOADS</p>
   </a>
+
+  <a href="dl_compression.php" class="w3-bar-item w3-button w3-padding-large w3-black">
+    <i class="fa fa-download w3-xxlarge"></i>
+    <p>COMPRESSOR</p>
+  </a>
 </nav>
 
 <!-- Navbar on small screens (Hidden on medium and large screens) -->
 <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
   <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-      <a href="https://focusbd.xyz/abante/" class="w3-bar-item w3-button w3-padding-large w3-yellow ">
+      <a href="https://focusbd.xyz/products.php" class="w3-bar-item w3-button w3-padding-large w3-yellow ">
   <i class="fa fa-shopping-cart" style="font-size:48px;color:red"></i>
     <p>BUY PRODUCTS</p>
   </a>
@@ -77,6 +82,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
     <a href="#reviews" class="w3-bar-item w3-button" style="width:25% !important">REVIEWS</a>
     <a href="downloads.php" class="w3-bar-item w3-button fa fa-download" style="width:25% !important">DOWNLOADS</a>
+    <a href="dl_compression.php" class="w3-bar-item w3-button fa fa-download" style="width:25% !important">COMPRESSION</a>
   </div>
 </div>
 
